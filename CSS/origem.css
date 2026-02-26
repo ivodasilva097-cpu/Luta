@@ -1,95 +1,166 @@
+/* versão responsiva de origem.css */
+
+/* container / root sizing */
+:root{
+  --max-width:1100px;
+  --accent:#ffea00;
+  --muted:#6c757d;
+}
+
+/* header (.cab) torna-se fluido em altura */
 .cab{
-	height:400px ;
-	background-image:url(../IMG/imagem1.png) ;
-	padding-top: 10px;
+  min-height: clamp(220px, 35vh, 420px);
+  background-image: url(../IMG/imagem1.png);
+  padding: 1rem;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .75rem;
 }
 
-.cab nav ul{ 	
-	text-align: right;
+/* Navbar dentro do header: use flex e wrap para responsivo */
+.cab nav{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0;
+  gap:.5rem;
+  flex-wrap:wrap;
 }
-
+.cab nav ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.cab nav li{ margin:0; }
 .cab li a{
-	text-decoration: none ;  
-	margin-left: 8px; 
-	border:1px solid blue;
-	padding: 10px;
-	color:green;
-	
+  text-decoration:none;
+  margin-left:0;
+  border:1px solid rgba(0,0,0,.08);
+  padding:.4rem .8rem;
+  color:var(--muted);
+  background: rgba(255,255,255,.85);
+  border-radius: .5rem;
+  font-size: clamp(.85rem, 2.2vw, 1rem);
 }
 
- .cab nav li{
- 	display: inline; 
- 	list-style: none;
- 	text-align: right;
- }
-
- .cab h2{
- 	margin-top: 90px;
-    text-align: center; 	
-    color:red;
-    font-size: 100px;
- }
-
- .origem h2{
-   text-align:left;
-   font-size: 50px;
-   border: 1px solid blue;
-   background: yellow;
-   padding: 18px 22px;
-   color: red;
-   border-radius: 40px;
- }
-.egl h3{
-
- text-align:left;
-   font-size: 50px;
-   border: 1px solid blue;
-   background: yellow;
-   padding: 18px 22px;
-   color: red;
-   border-radius: 40px;
-
-
+/* título do header: usa clamp para ajustar tamanhos */
+.cab h2{
+  margin:0;
+  text-align:center;
+  color: #c00;
+  font-size: clamp(1.25rem, 6vw, 3rem);
+  line-height:1.05;
+  text-shadow: 0 1px 3px rgba(0,0,0,.25);
+  padding: .25rem .5rem;
+  background: rgba(255,255,255,.12);
+  display:inline-block;
+  border-radius:.5rem;
 }
- 
+
+/* Seções e títulos - estilos fluidos */
+.origem h2,
+.egl h3,
 .farp h1{
-text-align: center;
-font-size: 60px;
-border: 1px solid blue;
- 	border-radius:60px;
- 	background:yellow;
- 	padding: 15px 20px;
- 	text-align: center;
- 	margin: 2px 110px;
- 	color: red;
-
+  font-size: clamp(1rem, 3.2vw, 2.2rem);
+  margin:.5rem 0;
+  color:#b30000;
+  background: var(--accent);
+  padding: clamp(.4rem, 1.2vw, .9rem) clamp(.6rem, 1.6vw, 1.5rem);
+  border-radius: clamp(.5rem, 1vw, 2rem);
+  display:inline-block;
+  border: none;
 }
 
+/* ajustes específicos para .farp (reduz margens fixas) */
+.farp h1{
+  text-align:center;
+  margin: .5rem auto;
+  max-width: min(95%, var(--max-width));
+  font-size: clamp(1.05rem, 3.2vw, 2rem);
+}
+
+/* .pe (botões/caixas) torna-se fluido */
 .pe{
-	background: yellow;
-	padding: 35px;
-	text-align: center;
+  background: var(--accent);
+  padding: clamp(.6rem, 2.5vw, 2.2rem);
+  text-align:center;
+  border-radius:.75rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  align-items:center;
+  justify-content:center;
 }
-
 .pe a{
-	border: 1px solid black;
-	padding: 15px 25px;
-	text-decoration: none;
-	border-radius: 30px;
-	background: rgba(0, 0, 0, 0.2);
-	box-shadow: 0px 5px 4px black;
-	margin-left: 8px;
+  border:1px solid rgba(0,0,0,.12);
+  padding: .45rem .9rem;
+  text-decoration:none;
+  border-radius:30px;
+  background: rgba(0,0,0,0.08);
+  box-shadow: 0 3px 6px rgba(0,0,0,.08);
+  color:inherit;
+  font-size: clamp(.85rem, 2vw, 1rem);
 }
-
 .pe img{
-	margin-bottom: -5px;
+  margin-bottom:0;
+  width:auto;
+  height:auto;
+  max-height:32px;
 }
 
-.pe p{
-	font-size: 30px;
-}
- 
-
+/* texto padrão e parágrafos fluídos */
 p{
-	font-size: 25px;
+  font-size: clamp(.95rem, 1.9vw, 1.25rem);
+  margin-bottom:.75rem;
+  color:#222;
+  word-wrap:break-word;
 }
+
+/* geral: limite max-width para alinhar layout */
+.container, .main-container {
+  max-width: var(--max-width);
+  margin-left:auto;
+  margin-right:auto;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  box-sizing: border-box;
+}
+
+/* pequenos ajustes para telas muito pequenas */
+@media (max-width:576px){
+  .cab{
+    padding:.75rem;
+    min-height: 160px;
+    align-items:flex-start;
+  }
+  .cab nav{
+    gap:.35rem;
+  }
+  .cab li a{
+    padding:.35rem .5rem;
+    font-size:.95rem;
+  }
+  .cab h2{ font-size: clamp(1rem, 8vw, 1.6rem); }
+  .pe{ padding:.5rem .6rem; }
+  .pe img{ max-height:22px; }
+  .farp h1{ margin: .5rem 0; }
+}
+
+/* ajustes intermédios para tablets */
+@media (min-width:577px) and (max-width:992px){
+  .cab h2{ font-size: clamp(1.2rem, 5.5vw, 2.4rem); }
+  .pe img{ max-height:28px; }
+}
+
+/* foco acessível */
+a:focus, button:focus { outline: 3px solid rgba(13,110,253,.18); outline-offset: 2px; }
+
+/* fim da versão responsiva */

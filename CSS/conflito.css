@@ -1,88 +1,135 @@
+/* Layout header responsivo */
 .hd{
-	height:400px ;
-	background-image:url(../IMG/conf.jpeg);
-	padding-top: 8px;
-	background-size: cover;
-	background-position: center;
-
+    min-height: clamp(200px, 40vh, 400px);
+    background-image: url(../IMG/conf.jpeg);
+    padding: 1rem;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .75rem;
 }
 
-.hd nav ul{ 	
-	text-align: right;
+/* Navbar dentro do header */
+.hd nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
 }
-
+.hd nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.hd nav li{ margin: 0; }
 .hd li a{
-	text-decoration: none ;  
-	margin-left: 8px; 
-	border:1px solid white;
-	padding: 10px;
-	color: white;
-	
+    text-decoration: none;
+    margin-left: 0;
+    border: 1px solid rgba(255,255,255,.9);
+    padding: .4rem .7rem;
+    color: #fff;
+    background: rgba(0,0,0,.25);
+    border-radius: .5rem;
+    font-size: clamp(.85rem, 2.2vw, 1rem);
 }
 
- .hd nav li{
- 	display: inline; 
- 	list-style: none;
- 	text-align: right;
- 	margin-right: 5px;
- }
-
- .hd h2{
- 	margin-top: 90px;
-    text-align: center; 	
-    color:red;
-    font-size: 100px;
- }
-
- .conflito h1{
-   text-align: center;
-   font-size: 50px;
- }
-
- .prim h1{
-border: 1px solid black;
- 	border-radius: 30px;
- 	background:yellow ;
- 	padding: 10px 20px;
- 	text-align: center;
- 	margin: 2px 110px;
-
- }
-
- .seg h2{
-border: 1px solid black;
- 	border-radius: 30px;
- 	background:yellow;
- 	padding: 10px 20px;
- 	text-align: center;
- 	margin: 2px 110px;
-
-	padding: 35px;
-	text-align: center;
+/* Cabeçalho título */
+.hd h2{
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    font-size: clamp(1.25rem, 5vw, 3rem);
+    text-shadow: 0 2px 6px rgba(0,0,0,.5);
 }
- 
- .pe{
-	background:yellow;
-	padding:15px 20px;
-	}
 
+/* Seções e títulos */
+.conflito h1{
+    text-align: center;
+    font-size: clamp(1rem, 3.2vw, 2rem);
+    margin: .75rem 0;
+}
+
+/* Botões/caixas de destaque - centro e responsivos */
+.prim h1,
+.seg h2 {
+    border: 1px solid #000;
+    border-radius: 30px;
+    background: #ffea00;
+    padding: .6rem 1rem;
+    text-align: center;
+    margin: .5rem auto;
+    max-width: min(95%, 720px);
+    box-sizing: border-box;
+    font-size: clamp(.95rem, 2.4vw, 1.5rem);
+}
+
+/* blocos de texto com destaque */
+.pe{
+    background: #ffea00;
+    padding: .8rem 1rem;
+    border-radius: .5rem;
+    margin: .5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+}
 .pe a{
-	border: 1px solid black;
-	padding: 15px 25px;
-	text-decoration: none;
-	border-radius: 30px;
-	background: rgba(0, 0, 0, 0.2);
-	box-shadow: 0px 5px 4px black;
-	margin-left: 8px;
+    border: 1px solid rgba(0,0,0,.6);
+    padding: .5rem .9rem;
+    text-decoration: none;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 6px rgba(0,0,0,.15);
+    margin-left: 0;
+    color: inherit;
+    font-size: clamp(.85rem, 2vw, 1rem);
 }
-
 .pe img{
-	margin-bottom: -5px;
-}
-.pe p{
-	font-size: 30px;
+    margin-bottom: 0;
+    width: auto;
+    height: auto;
+    max-height: 28px;
 }
 
-p{
-	font-size: 25px;
+/* Texto padrão */
+.pe p{
+    font-size: clamp(.95rem, 2vw, 1.6rem);
+    margin: 0;
 }
+
+/* Parágrafos gerais */
+p{
+    font-size: clamp(.95rem, 1.8vw, 1.25rem);
+    margin-bottom: .75rem;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 576px) {
+    .hd{
+        padding: .75rem;
+        min-height: 180px;
+    }
+    .hd nav ul{
+        gap: .4rem;
+    }
+    .hd li a{
+        padding: .35rem .5rem;
+        font-size: .9rem;
+    }
+    .pe{
+        padding: .6rem .6rem;
+    }
+    .pe img{ max-height: 22px; }
+}
+
+/* Pequenas melhorias de acessibilidade/foque */
+a:focus, button:focus { outline: 3px solid rgba(13,110,253,.18); outline-offset: 2px; }
