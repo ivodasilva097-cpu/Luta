@@ -134,3 +134,37 @@ a:focus, button:focus { outline:3px solid rgba(13,110,253,.14); outline-offset:2
 	height: 250px;
 	width:300px;
 }
+
+.rodape{
+	background-color:#555 ;
+}
+.rodape p{
+	text-align: center;
+	color: white;
+}
+.rodape ul{
+	display: flex;
+	justify-content: center;
+	
+
+}
+
+
+.rodape ul li{list-style:none; 
+} 
+.rodape ul li a{
+	text-decoration: none;
+}
+.rodape ul li a img { 
+width:40px;
+margin: 20px;
+border-radius: 50%;
+
+ }
+
+.rodape ul li a img:hover{
+	border: 2px solid white;
+	transform: scale(1.3);
+}
+
+
